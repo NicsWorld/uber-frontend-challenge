@@ -2,9 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 
 export const Shape = ({ data }: any) => {
   const [selected, setSelected] = useState(new Set());
-  //   const countOfVisibleBoxes = useMemo(() => {
-
-  //   }, [data])
+  // useMemo optimization?
   const countOfVisibleBoxes = data.reduce((acc: any, box: any) => {
     if (box === "1") {
       acc += 1;
@@ -13,7 +11,6 @@ export const Shape = ({ data }: any) => {
   }, 0);
 
   const undo = () => {
-    // remove green color every 500ms
     const keys = Array.from(selected.keys());
     const removeNext = () => {
       if (keys.length) {
